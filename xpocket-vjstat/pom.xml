@@ -8,9 +8,15 @@
     <artifactId>xpocket-vjstat</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.vip.vjtools/vjmxcli -->
+        <dependency>
+            <groupId>com.vip.vjtools</groupId>
+            <artifactId>vjmxcli</artifactId>
+            <version>1.0.8</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
