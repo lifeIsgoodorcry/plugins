@@ -1,0 +1,6 @@
+plugin-name=sar
+plugin-namespace=linux
+plugin-version=1.0.0-RELEASE
+plugin-author=qiuhua
+plugin-command-package=com.qiu.sar
+usage-tips=plugins only used on linux, if you want to user sar, please download sar,you can use 'yum  install sysstat' for dowmloading sar
