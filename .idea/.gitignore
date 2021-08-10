@@ -8,3 +8,6 @@ modules.xml
 plugins.iml
 runConfigurations.xml
 vcs.xml
+xp
+*.iml
+
