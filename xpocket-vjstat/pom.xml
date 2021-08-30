@@ -29,15 +29,6 @@
             <version>1.0.8</version>
         </dependency>
 
-
-        <!-- https://mvnrepository.com/artifact/com.vip.vjtools/vjmxcli -->
-        <dependency>
-            <groupId>com.vip.vjtools</groupId>
-            <artifactId>vjmxcli</artifactId>
-            <version>1.0.7</version>
-        </dependency>
-
-
         <dependency>
             <groupId>com.perfma.xlab</groupId>
             <artifactId>xpocket-plugin-spi</artifactId>

@@ -6,7 +6,6 @@ if [ -z "$JAVA_HOME" ] ; then
     sed 's/\jre\/bin\/java//' | sed 's/\/bin\/java//'`
 fi
 
-printf $JAVA_HOME
 
 if [ ! -d "$JAVA_HOME" ] ; then
 	echo "Please set JAVA_HOME env before run this script"
@@ -26,4 +25,4 @@ DIR=$( cd $(dirname $0) ; pwd -P )
 
 JAVA_OPTS="-Xms96m -Xmx96m -Xmn64m -Xss256k -XX:+UseSerialGC -Djava.compiler=NONE -Xverify:none -XX:AutoBoxCacheMax=20000"
 
-"$JAVA_HOME"/bin/java $JAVA_OPTS -cp "$DIR/vjmxcli.jar:$TOOLSJAR" com.vip.vjtools.jmx.Client $*%
+"$JAVA_HOME"/bin/java $JAVA_OPTS -cp "$DIR/vjmxcli-1.0.8.jar:$TOOLSJAR" com.vip.vjtools.jmx.Client $*%

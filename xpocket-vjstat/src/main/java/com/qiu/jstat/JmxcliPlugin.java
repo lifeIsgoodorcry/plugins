@@ -13,23 +13,24 @@ public class JmxcliPlugin extends AbstractXPocketPlugin {
 
     private static final String USER_HOME = System.getProperty("user.home");
 
-    private static final String path = USER_HOME + File.separator + ".xpocket"
+    public static final String PATH = USER_HOME + File.separator + ".xpocket"
             + File.separator + ".vjmxcli" + File.separator;
 
-    private static final String[] files = {"vjmxcli.jar","vjmxcli.sh"};
+    private static final String[] files = {"vjmxcli-1.0.8.jar","vjmxcli"};
 
     @Override
     public void init(XPocketProcess process) {
         try {
-            File file = new File(path+".vjmxcli");
-            if(file.exists()) {
-                return;
-            } //说明已经拷贝过了
+            File file = new File(PATH);
+            if(file.exists()){
+               file.delete();
+            }
+            //说明已经拷贝过了
             process.output("输出文件目录:"+file.getPath());
             file.mkdirs();
             for(String f : files) {
-                InputStream is = JmxcliPlugin.class.getClassLoader().getResourceAsStream(".vjmxcli/lib/" + f);
-                Path targetFile = new File(path + f).toPath();
+                InputStream is = JmxcliPlugin.class.getClassLoader().getResourceAsStream("lib/" + f);
+                Path targetFile = new File(PATH + f).toPath();
                 Files.copy(is, targetFile);
                 is.close();
             }
@@ -37,4 +38,5 @@ public class JmxcliPlugin extends AbstractXPocketPlugin {
             ex.printStackTrace();
         }
     }
+
 }

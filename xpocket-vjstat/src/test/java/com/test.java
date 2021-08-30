@@ -9,8 +9,7 @@ import java.util.List;
 
 public class test {
     public static void main(String[] args) {
-//        Client client = new Client();
-//        client.executeOneCmd();
+        Client client = new Client();
 
 
         String s = monitorMemoryPool();

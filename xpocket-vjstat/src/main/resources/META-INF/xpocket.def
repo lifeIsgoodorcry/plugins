@@ -3,5 +3,5 @@ plugin-namespace=linux,mac,window
 plugin-version=1.0.0-RELEASE
 plugin-author=qiuhua
 plugin-command-package=com.qiu.jstat
-usage-tips=plugins only used on linux, if you want to user sar, please download sar,you can use 'yum  install sysstat' for dowmloading sar
+usage-tips=完全模拟jstat -gcutil输出的gcutil，用于jstat不能使用的情况，eg: use pid gcutil 9
 main-implementation=com.qiu.jstat.JmxcliPlugin
