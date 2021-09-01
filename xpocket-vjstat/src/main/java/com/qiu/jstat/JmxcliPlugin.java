@@ -23,10 +23,8 @@ public class JmxcliPlugin extends AbstractXPocketPlugin {
         try {
             File file = new File(PATH);
             if(file.exists()){
-               file.delete();
+                return;
             }
-            //说明已经拷贝过了
-            process.output("输出文件目录:"+file.getPath());
             file.mkdirs();
             for(String f : files) {
                 InputStream is = JmxcliPlugin.class.getClassLoader().getResourceAsStream("lib/" + f);
