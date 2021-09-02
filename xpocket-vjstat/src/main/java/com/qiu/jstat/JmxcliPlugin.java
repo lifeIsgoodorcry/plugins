@@ -16,7 +16,7 @@ public class JmxcliPlugin extends AbstractXPocketPlugin {
     public static final String PATH = USER_HOME + File.separator + ".xpocket"
             + File.separator + ".vjmxcli" + File.separator;
 
-    private static final String[] files = {"vjmxcli-1.0.8.jar","vjmxcli"};
+    private static final String[] files = {"vjmxcli-1.0.8.jar","vjmxcli","killvjmxcli"};
 
     @Override
     public void init(XPocketProcess process) {

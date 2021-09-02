@@ -10,10 +10,13 @@ import java.io.*;
 import static com.qiu.jstat.JmxcliPlugin.PATH;
 
 
-@CommandInfo(name = "gcutil", usage = "use :gcutil <pid> [<interval> [<count>]], eg:gcutil 1234 2, ",index = 2)
+@CommandInfo(name = "gcutil", usage = "use :gcutil <pid> [<interval> [<count>]],eg:gcutil 1234 2\n",index = 2)
+
 @CommandInfo(name = "help", usage = "you can use gcutil <pid> [<interval> [<count>]]" +
-                                                          " \n<interval> : how long once, if interval is null ,default 1, "+
-                                                          " \n<count> : how many times ，if count is null ,default 4"
+         " \n"+
+                                                            " \n<interval> : how long once, if interval is null ,default 1, "+
+         " \n"+
+                                                            " \n<count> : how many times ，if count is null ,default 4"
         ,index = 1)
 public class CommandExecuteClient extends AbstractXPocketCommand {
 
@@ -52,21 +55,23 @@ public class CommandExecuteClient extends AbstractXPocketCommand {
          */
         String[] execArgs = createArgs(cmd,args);
       try{
-           run(process,execArgs);
+           run(process,false, execArgs);
       }catch (Exception e){
            process.output(e.toString());
       }
       //杀死shell的进程,杀不死
-        killShell();
+        killShell(process);
       process.end();
     }
 
-    private void killShell() {
-        try {
-            Process exec = Runtime.getRuntime().exec("pkill -f 'com.vip.vjtools.jmx.Client");
-            exec.destroy();
-        } catch (IOException e) {
-            e.printStackTrace();
+    private void killShell(XPocketProcess process) {
+        try{
+            String[] execArgs=new String[2];
+            execArgs[0] = "sh";
+            execArgs[1] = PATH + "killvjmxcli";
+            run(process,true,execArgs);
+        }catch (Exception e){
+             process.output(e.toString());
         }
     }
 
@@ -87,7 +92,7 @@ public class CommandExecuteClient extends AbstractXPocketCommand {
     private String[] createArgs(String cmd,String[] args) {
         // gcutil 123214 4  或者，数组长度固定6，补充默认值
         // sh aa 12324 gcutil 4 4  +4：sh+path+默认1,+cmd
-         String[] execArgs=new String[5];
+         String[] execArgs=new String[6];
          execArgs[0] = "sh";
          execArgs[1] = PATH + "vjmxcli";
          execArgs[2] = " - "+ args[0];
@@ -102,10 +107,13 @@ public class CommandExecuteClient extends AbstractXPocketCommand {
         return execArgs;
     }
 
-    private  void run(XPocketProcess xprocess,String... cmds) throws IOException {
+    private  void run(XPocketProcess xprocess,boolean isKill,String... cmds) throws IOException {
         Process process = null;
         BufferedReader bufferedReader=null;
-        int totalLine= Integer.parseInt(cmds[cmds.length-1])+1;
+        int totalLine= 10;
+        if(!isKill){
+            totalLine=Integer.parseInt(cmds[cmds.length-1])+1;
+        }
         try{
             ProcessBuilder pb = new ProcessBuilder(cmds);
             pb.redirectErrorStream(true);
