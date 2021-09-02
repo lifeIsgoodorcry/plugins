@@ -10,13 +10,8 @@ import java.io.*;
 import static com.qiu.jstat.JmxcliPlugin.PATH;
 
 
-@CommandInfo(name = "gcutil", usage = "use :gcutil <pid> [<interval> [<count>]],eg:gcutil 1234 2\n",index = 2)
-
-@CommandInfo(name = "help", usage = "you can use gcutil <pid> [<interval> [<count>]]" +
-         " \n"+
-                                                            " \n<interval> : how long once, if interval is null ,default 1, "+
-         " \n"+
-                                                            " \n<count> : how many times ，if count is null ,default 4"
+@CommandInfo(name = "gcutil",usage ="use:gcutil <pid> [<interval> [<count>]],eg:gcutil 1234 2",index = 2)
+@CommandInfo(name = "help",  usage ="use gcutil <pid> [<interval> [<count>]]. <interval>:how long once,if interval is null,default 1,<count>:how many times,if count is null,default 4"
         ,index = 1)
 public class CommandExecuteClient extends AbstractXPocketCommand {
 

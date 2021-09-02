@@ -10,7 +10,6 @@ import java.nio.file.Path;
 
 public class JmxcliPlugin extends AbstractXPocketPlugin {
 
-
     private static final String USER_HOME = System.getProperty("user.home");
 
     public static final String PATH = USER_HOME + File.separator + ".xpocket"
