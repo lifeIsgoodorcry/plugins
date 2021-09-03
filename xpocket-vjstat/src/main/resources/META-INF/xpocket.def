@@ -1,7 +1,7 @@
 plugin-name=jmx
-plugin-namespace=linux,mac,window
+plugin-namespace=sun
 plugin-version=1.0.0-RELEASE
 plugin-author=qiuhua
 plugin-command-package=com.qiu.jstat
-usage-tips=完全模拟jstat -gcutil输出的gcutil，用于jstat不能使用的情况，必须设定JAVA_HOME环境变量，必须与目标JVM使用相同的JDK版本运行
+usage-tips=完全模拟jstat -gcutil输出的gcutil，用于jstat不能使用的情况，必须设定JAVA_HOME环境变量,若没设置，使用本地java，但必须与目标JVM使用相同的JDK版本运行
 main-implementation=com.qiu.jstat.JmxcliPlugin

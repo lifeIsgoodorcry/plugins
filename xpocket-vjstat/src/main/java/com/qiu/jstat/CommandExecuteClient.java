@@ -11,7 +11,7 @@ import static com.qiu.jstat.JmxcliPlugin.PATH;
 
 
 @CommandInfo(name = "gcutil",usage ="use:gcutil <pid> [<interval> [<count>]],eg:gcutil 1234 2",index = 2)
-@CommandInfo(name = "help",  usage ="use gcutil <pid> [<interval> [<count>]]. <interval>:how long once,if interval is null,default 1,<count>:how many times,if count is null,default 4"
+@CommandInfo(name = "help",  usage ="use:gcutil <pid> [<interval> [<count>]]. <interval>:how long once,if interval is null,default 1,<count>:how many times,if count is null,default 4"
         ,index = 1)
 public class CommandExecuteClient extends AbstractXPocketCommand {
 
@@ -28,7 +28,7 @@ public class CommandExecuteClient extends AbstractXPocketCommand {
     }
 
     /**
-     * 必须attach进去  命令可以修改 成 run 进程号 gcutil 5
+     *
      * @param process
      * @throws Throwable
      */
@@ -107,7 +107,7 @@ public class CommandExecuteClient extends AbstractXPocketCommand {
         BufferedReader bufferedReader=null;
         int totalLine= 10;
         if(!isKill){
-            totalLine=Integer.parseInt(cmds[cmds.length-1])+1;
+            totalLine=Integer.parseInt(cmds[cmds.length-1])+2;
         }
         try{
             ProcessBuilder pb = new ProcessBuilder(cmds);
@@ -126,7 +126,9 @@ public class CommandExecuteClient extends AbstractXPocketCommand {
                         break;
                     }
                     lineCount++;
-                    xprocess.output(line);
+                    if(lineCount>=2){
+                        xprocess.output(line);
+                    }
                 }
             }
         }finally {
