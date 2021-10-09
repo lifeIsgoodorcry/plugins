@@ -1,4 +1,4 @@
-plugin-name=jmx
+plugin-name=vjstat-gcutil
 plugin-namespace=sun
 plugin-version=1.0.0-RELEASE
 plugin-author=qiuhua

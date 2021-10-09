@@ -41,7 +41,9 @@ public class CommandExecuteClient extends AbstractXPocketCommand {
             return;
         }
         String[] args = process.getArgs();
-        if(args.length<0){
+        if(args.length==0){
+            process.output("pid is empty,please check args");
+            process.end();
             return;
         }
         /**
