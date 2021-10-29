@@ -2,5 +2,9 @@ plugin-name=sar
 plugin-namespace=linux
 plugin-version=1.0.0-RELEASE
 plugin-author=qiuhua
+tool-author=linux
+tool-project=sar
 plugin-command-package=com.qiu.sar
 usage-tips=plugins only used on linux, if you want to user sar, please download sar,you can use 'yum  install sysstat' for dowmloading sar
+plugin-description=plugins only used on linux, if you want to user sar, please download sar,you can use 'yum  install sysstat' for dowmloading sar\nLearn more: https://plugin.xpocket.perfma.com/plugin/68
+
