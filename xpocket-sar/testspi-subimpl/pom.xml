@@ -2,30 +2,26 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>xpocket-sar</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0.0-RELEASE</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
-    <artifactId>xpocket-sar</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0.0-RELEASE</version>
-    <modules>
-        <module>testspi</module>
-        <module>testspi-subimpl</module>
-        <module>suanfa</module>
-    </modules>
+    <artifactId>testspi-subimpl</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
-
     <dependencies>
+        <!--引入依赖，接口所在的项目依赖-->
         <dependency>
-            <groupId>com.perfma.xlab</groupId>
-            <artifactId>xpocket-plugin-spi</artifactId>
-            <version>2.0.0-RELEASE</version>
-            <scope>provided</scope>
+            <groupId>org.example</groupId>
+            <artifactId>testspi</artifactId>
+            <version>1.0.0-RELEASE</version>
         </dependency>
     </dependencies>
 
